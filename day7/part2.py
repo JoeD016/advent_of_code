@@ -23,7 +23,7 @@ def main():
     current_node = root
     root_size = 0
     # input via .txt file
-    with open('input1.txt') as f:
+    with open('input2.txt') as f:
         lines = f.read().splitlines()
     dir_sizes = []
     index = 0
@@ -66,21 +66,13 @@ def main():
             node.size = size
             dir_sizes.append(size)
             return size
-
+    
     dfs(root)
-    print(sum([size for size in dir_sizes if size <= 100000]))
+    required_space = 30000000
+    total_space = 70000000
+    size_to_free = required_space - (total_space - root.size)
+    print(min([size for size in dir_sizes if size >= size_to_free]))
     
-
-    
-    
-    
-
-
-
-
-
-    
-
 
 if __name__ == "__main__":
     main()
